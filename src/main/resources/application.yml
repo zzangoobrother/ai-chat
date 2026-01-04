@@ -7,3 +7,12 @@ spring:
           model: openai/gpt-4.1-nano
         base-url: https://models.github.ai/inference
         completions-path: /chat/completions
+    model:
+      chat: ollama
+
+    ollama:
+      chat:
+        options:
+          model: hf.co/rippertnt/HyperCLOVAX-SEED-Text-Instruct-1.5B-Q4_K_M-GGUF
+      init:
+        pull-model-strategy: when_missing
