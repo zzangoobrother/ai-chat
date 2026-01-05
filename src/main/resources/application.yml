@@ -1,4 +1,7 @@
 spring:
+  application:
+    name: ai-chat
+    cli: true
   ai:
     openai:
       api-key: ${OPENAI_API_KEY}
