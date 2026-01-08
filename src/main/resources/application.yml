@@ -1,7 +1,7 @@
 spring:
   application:
     name: ai-chat
-    cli: true
+    cli: false
   ai:
     openai:
       api-key: ${OPENAI_API_KEY}
@@ -19,3 +19,7 @@ spring:
           model: hf.co/rippertnt/HyperCLOVAX-SEED-Text-Instruct-1.5B-Q4_K_M-GGUF
       init:
         pull-model-strategy: when_missing
+
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor: debug

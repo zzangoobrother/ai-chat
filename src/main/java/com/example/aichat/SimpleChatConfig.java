@@ -1,7 +1,7 @@
 package com.example.aichat;
 
 import ch.qos.logback.classic.LoggerContext;
-import com.example.aichat.service.SimpleChatService;
+import com.example.aichat.service.ChatService;
 import org.slf4j.LoggerFactory;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
@@ -36,7 +36,7 @@ public class SimpleChatConfig {
 
     @ConditionalOnProperty(prefix = "spring.application", name = "cli", havingValue = "true")
     @Bean
-    public CommandLineRunner cli(@Value("${spring.application.name}") String applicationName, SimpleChatService chatService, SimpleChatService simpleChatService) {
+    public CommandLineRunner cli(@Value("${spring.application.name}") String applicationName, ChatService chatService, ChatService simpleChatService) {
         return args -> {
             LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
             context.getLogger("ROOT").detachAppender("CONSOLE");
