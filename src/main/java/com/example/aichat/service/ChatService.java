@@ -8,6 +8,8 @@ import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 
+import java.util.List;
+
 @Service
 public class ChatService {
 
@@ -27,5 +29,15 @@ public class ChatService {
 
     private ChatClient.ChatClientRequestSpec buildChatClientRequestSpec(Prompt prompt, String conversationId) {
         return chatClient.prompt(prompt).advisors(advisorSpec -> advisorSpec.param(ChatMemory.CONVERSATION_ID, conversationId));
+    }
+
+    public enum Emotion {VERY_NEGATIVE, NEGATIVE, NEUTRAL, POSITIVE, VERY_POSITIVE}
+
+    public record EmotionEvaluation(Emotion emotion, List<String> reason) {
+
+    }
+
+    public EmotionEvaluation callEmotionEvaluation(Prompt prompt, String conversationId) {
+        return buildChatClientRequestSpec(prompt, conversationId).call().entity(EmotionEvaluation.class);
     }
 }

@@ -11,7 +11,7 @@ spring:
         base-url: https://models.github.ai/inference
         completions-path: /chat/completions
     model:
-      chat: ollama
+      chat: openai
 
     ollama:
       chat:

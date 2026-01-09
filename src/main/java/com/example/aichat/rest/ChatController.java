@@ -57,7 +57,12 @@ public class ChatController {
     }
 
     @PostMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    Flux<String> stream(@RequestBody @Valid PromptBody promptBody) {
+    public Flux<String> stream(@RequestBody @Valid PromptBody promptBody) {
         return this.chatService.stream(builderPrompt(promptBody), promptBody.conversationId());
+    }
+
+    @PostMapping(value = "/emotion", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ChatService.EmotionEvaluation emotion(@RequestBody PromptBody promptBody) {
+        return chatService.callEmotionEvaluation(builderPrompt(promptBody), promptBody.conversationId());
     }
 }
