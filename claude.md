@@ -12,6 +12,7 @@
 - 모든 커밋 메시지는 **Conventional Commits** 명세를 따른다.
 - (예: `feat: Add author profile component`, `fix: Correct typo in footer`)
 - 커밋 본문에는 변경 이유를 명확히 서술하고, 관련된 GitHub 이슈를 `Closes #[이슈번호]` 형식으로 반드시 포함한다.
+- 절대 claude 관련된 커밋 내용을 남기지마. author에도 적지마.
 
 ## 4. Pull Request (PR) Process
 - 모든 코드는 `main` 브랜치로 직접 푸시할 수 없으며, 반드시 PR을 통해 코드 리뷰를 받아야 한다.
