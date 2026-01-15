@@ -20,6 +20,10 @@ spring:
       init:
         pull-model-strategy: when_missing
 
+app:
+  rag:
+    documents-location-pattern: classpath:fastcampus-springai.pdf
+
 logging:
   level:
     org.springframework.ai.chat.client.advisor: debug
